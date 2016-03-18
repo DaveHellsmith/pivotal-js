@@ -1,6 +1,6 @@
 {
   "name": "pivotal-js-react-test-helpers",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Test helpers for React",
   "repository": {
     "type": "git",
@@ -10,7 +10,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Pivotal Software, Inc",
   "license": "MIT",
   "dependencies": {
     "react-addons-test-utils": "^0.14.7"

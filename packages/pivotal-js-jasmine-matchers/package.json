@@ -1,6 +1,6 @@
 {
   "name": "pivotal-js-jasmine-matchers",
-  "version": "0.0.5",
+  "version": "0.0.8",
   "description": "Collection of Jasmine matchers",
   "repository": {
     "type": "git",
@@ -10,7 +10,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Pivotal Software, Inc",
   "license": "MIT",
   "dependencies": {
     "jasmine-ajax": "^3.2.0",
