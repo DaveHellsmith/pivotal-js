@@ -9,7 +9,7 @@ const jQuery = require('jquery');
       throw new Error(`jQuery Simulate has an empty selection for '${this.selector}'`);
     }
     $.each(this, function() {
-      if (['mouseOver', 'mouseOut', 'click'].includes(eventName)) {
+      if (['mouseOver', 'mouseOut'].includes(eventName)) {
         TestUtils.SimulateNative[eventName](this, ...args);
       } else {
         TestUtils.Simulate[eventName](this, ...args);
