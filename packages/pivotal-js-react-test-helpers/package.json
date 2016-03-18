@@ -1,6 +1,6 @@
 {
   "name": "pivotal-js-react-test-helpers",
-  "version": "0.0.8",
+  "version": "0.0.10",
   "description": "Test helpers for React",
   "repository": {
     "type": "git",
