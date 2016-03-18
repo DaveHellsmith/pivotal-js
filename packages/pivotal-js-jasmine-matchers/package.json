@@ -1,0 +1,16 @@
+{
+  "name": "pivotal-js-jasmine-matchers",
+  "version": "0.0.2",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jasmine-ajax": "^3.2.0",
+    "jasmine_dom_matchers": "^1.4.0",
+    "qs": "^5.2.0"
+  }
+}
