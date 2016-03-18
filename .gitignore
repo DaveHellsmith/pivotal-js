@@ -1,0 +1,8 @@
+.idea
+/dist/*
+node_modules
+/packages/*/lib
+/public/*
+npm-shrinkwrap.json
+/tmp/*
+.DS_Store
