@@ -16,20 +16,25 @@ Jasmine matcher libraries
 
 For use with `jasmine-ajax`
 
-* toHaveBeenRequested
+* toHaveBeenRequested()
   `expect('run.pivotal.io').toHaveBeenRequested();`
-* toHaveBeenRequestedWithQuery
+* toHaveBeenRequestedWithQuery(query)
   `expect('run.pivotal.io').toHaveBeenRequestWithQuery({page: 2, perPage: 50});`
-* toHaveBeenRequestedWith
+* toHaveBeenRequestedWith(requestObject)
   `expect('run.pivotal.io').toHaveBeenRequestedWith({method: 'POST', requestHeaders: 'let me in'})`
 
 ### Math Matchers
 
-* toAlmostEqual
+* toAlmostEqual(expected, precision)
+
+  Compares the actual and expected, to `precision` decimal places.
+  `Precision` defaults to 5.
+
   `expect(2.000001).toAlmostEqual(2, 4);`
 
 
 ### React Matchers
 
-* toHaveBeenRenderedWithProps
+* toHaveBeenRenderedWithProps()
+
   `expect(MyComponent).toHaveBeenRenderedWithProps({expanded: true});`

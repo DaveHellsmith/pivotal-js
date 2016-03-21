@@ -1,26 +1,26 @@
-var plumber = require("gulp-plumber");
-var through = require("through2");
-var babel   = require("gulp-babel");
-var gutil   = require("gulp-util");
-var gulp    = require("gulp");
-var path    = require("path");
+var plumber = require('gulp-plumber');
+var through = require('through2');
+var babel   = require('gulp-babel');
+var gutil   = require('gulp-util');
+var gulp    = require('gulp');
+var path    = require('path');
 
-var scripts = "./packages/*/src/**/*.js";
-var dest = "packages";
+var scripts = './packages/*/src/**/*.js';
+var dest = 'packages';
 
 var srcEx, libFragment;
 
 if (path.win32 === path) {
   srcEx = /(packages\\[^\\]+)\\src\\/;
-  libFragment = "$1\\lib\\";
+  libFragment = '$1\\lib\\';
 } else {
-  srcEx = new RegExp("(packages/[^/]+)/src/");
-  libFragment = "$1/lib/";
+  srcEx = new RegExp('(packages/[^/]+)/src/');
+  libFragment = '$1/lib/';
 }
 
-gulp.task("default", ["build"]);
+gulp.task('default', ['build']);
 
-gulp.task("build", function () {
+gulp.task('build', function () {
   return gulp.src(scripts)
     .pipe(plumber({
       errorHandler: function (err) {
@@ -33,7 +33,7 @@ gulp.task("build", function () {
       callback(null, file);
     }))
     .pipe(through.obj(function (file, enc, callback) {
-      gutil.log("Compiling", "'" + file._path + "'...");
+      gutil.log(`Compiling, ${file._path}...`);
       callback(null, file);
     }))
     .pipe(babel())

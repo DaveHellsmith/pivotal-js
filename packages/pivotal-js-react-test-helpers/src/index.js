@@ -17,6 +17,16 @@ const jQuery = require('jquery');
     });
     return this;
   };
+
+  $.fn.simulateNative = function(eventName, ...args) {
+    if (!this.length) {
+      throw new Error(`jQuery Simulate has an empty selection for '${this.selector}'`);
+    }
+    $.each(this, function() {
+        TestUtils.SimulateNative[eventName](this, ...args);
+    });
+    return this;
+  };
 })(jQuery);
 
 module.exports = {
