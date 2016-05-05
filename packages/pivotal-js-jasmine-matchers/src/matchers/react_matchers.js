@@ -2,36 +2,24 @@ module.exports = {
   toHaveBeenRenderedWithProps(util, customEqualityTesters) {
     return {
       compare(actual, expected) {
-        const result = {};
-
-        const mostRecentCall = actual.prototype.render.calls.mostRecent();
-
         const displayClass = actual.displayName;
         const displayExpected = jasmine.pp(expected);
 
-
-        if (mostRecentCall) {
-          const actualProps = mostRecentCall.object.props;
-          result.pass = util.equals(
-            actualProps,
-            jasmine.objectContaining(expected),
-            customEqualityTesters
-          );
+        return actual.prototype.render.calls.all().reduce((result, renderCall) => {
+          result.pass = result.pass || util.equals(renderCall.object.props, jasmine.objectContaining(expected), customEqualityTesters);
 
           if (result.pass) {
             result.message = `Expected ${displayClass} not to have been rendered with props ${displayExpected}`;
           } else {
-            const displayActual = jasmine.pp(actualProps);
-
-            result.message = `Expected ${displayClass} to have been rendered with props ${displayExpected}, but got ${displayActual}`;
+            result.actualCallProps += jasmine.pp(renderCall.object.props) + '\n';
+            result.message = `Expected ${displayClass} to have been rendered with props ${displayExpected},\n but got ${result.actualCallProps}`;
           }
-        } else {
-          result.pass = false;
-
-          result.message = `Expected ${displayClass} to have been rendered with props ${displayExpected}, but it was never rendered`;
-        }
-
-        return result;
+          return result;
+        }, {
+          pass: false,
+          message: `Expected ${displayClass} to have been rendered with props ${displayExpected}, but it was never rendered`,
+          actualCallProps: ''
+        });
       }
     };
   }
