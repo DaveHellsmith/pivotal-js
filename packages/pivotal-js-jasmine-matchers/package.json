@@ -1,6 +1,6 @@
 {
   "name": "pivotal-js-jasmine-matchers",
-  "version": "0.0.14",
+  "version": "0.0.16",
   "description": "Collection of Jasmine matchers",
   "repository": {
     "type": "git",
