@@ -1,4 +1,3 @@
-require('jasmine-ajax');
 const qs = require('qs');
 
 module.exports = {
