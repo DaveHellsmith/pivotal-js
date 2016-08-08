@@ -44,7 +44,8 @@ module.exports = {
       getChildContext() { return context; }
 
       render() {
-        return (<div {...props}>{callback.call(this)}</div>);
+        const divProps = ['classname', 'id', 'style', 'onClick'].reduce((memo, prop) => (memo[prop] = props[prop], memo), {});
+        return (<div {...divProps}>{callback.call(this)}</div>);
       }
     }
 
