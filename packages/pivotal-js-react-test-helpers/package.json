@@ -12,9 +12,6 @@
   },
   "author": "Pivotal Software, Inc",
   "license": "MIT",
-  "dependencies": {
-    "react-addons-test-utils": ">=0.14.7"
-  },
   "devDependencies": {
     "jquery": "^2.2.2",
     "react": "^15.0.1",

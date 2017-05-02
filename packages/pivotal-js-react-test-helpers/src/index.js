@@ -1,6 +1,6 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
-const TestUtils = require('react-addons-test-utils');
+const ReactTestUtils = require('react-dom/test-utils');
 const jQuery = require('jquery');
 
 (function($) {
