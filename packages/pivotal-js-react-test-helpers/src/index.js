@@ -1,3 +1,4 @@
+const PropTypes = require('prop-types');
 const React = require('react');
 const ReactDOM = require('react-dom');
 const ReactTestUtils = require('react-dom/test-utils');
@@ -10,9 +11,9 @@ const jQuery = require('jquery');
     }
     $.each(this, function() {
       if (['mouseOver', 'mouseOut'].includes(eventName)) {
-        TestUtils.SimulateNative[eventName](this, ...args);
+        ReactTestUtils.SimulateNative[eventName](this, ...args);
       } else {
-        TestUtils.Simulate[eventName](this, ...args);
+        ReactTestUtils.Simulate[eventName](this, ...args);
       }
     });
     return this;
@@ -23,7 +24,7 @@ const jQuery = require('jquery');
       throw new Error(`jQuery Simulate has an empty selection for '${this.selector}'`);
     }
     $.each(this, function() {
-        TestUtils.SimulateNative[eventName](this, ...args);
+      ReactTestUtils.SimulateNative[eventName](this, ...args);
     });
     return this;
   };
@@ -39,7 +40,7 @@ module.exports = {
     }
 
     class Context extends React.Component {
-      static childContextTypes = Object.keys(context).reduce((memo, key) => (memo[key] = React.PropTypes.any, memo), {});
+      static childContextTypes = Object.keys(context).reduce((memo, key) => (memo[key] = PropTypes.any, memo), {});
 
       getChildContext() { return context; }
 
